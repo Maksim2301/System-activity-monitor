@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.controller.MainController"
+            stylesheets="@/css/app.css">
+
+    <top>
+        <VBox alignment="CENTER">
+            <Label text="System Activity Monitor"
+                   styleClass="app-title"/>
+            <Label fx:id="guestLabel"
+                   text=""
+                   styleClass="guest-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="25" alignment="CENTER" style="-fx-padding: 25;">
+
+            <VBox spacing="10" alignment="CENTER">
+                <Button fx:id="userPanelBtn"
+                        text="User Panel"
+                        styleClass="btn-main"
+                        onAction="#openUserPanel"/>
+
+                <Button fx:id="reportsBtn"
+                        text="Reports"
+                        styleClass="btn-main"
+                        onAction="#openReportsPanel"/>
+
+                <Button fx:id="exitBtn"
+                        text="Exit"
+                        styleClass="btn-exit"
+                        onAction="#exitApp"/>
+            </VBox>
+
+            <Separator prefWidth="400" styleClass="separator"/>
+
+            <VBox spacing="10" alignment="CENTER">
+
+                <Label fx:id="idleStatusLabel"
+                       text="Status: Online"
+                       styleClass="idle-status"/>
+
+                <fx:define>
+                    <ToggleGroup fx:id="idleGroup"/>
+                </fx:define>
+
+                <HBox spacing="20" alignment="CENTER">
+                    <RadioButton fx:id="idleOnline"
+                                 toggleGroup="${idleGroup}"
+                                 text="Online"
+                                 selected="true"
+                                 onAction="#setIdleOnline"/>
+
+                    <RadioButton fx:id="idleOffline"
+                                 toggleGroup="${idleGroup}"
+                                 text="Offline"
+                                 onAction="#setIdleOffline"/>
+                </HBox>
+
+                <Label fx:id="idleMessage"
+                       text=""
+                       styleClass="idle-msg"/>
+
+            </VBox>
+
+            <Separator prefWidth="400" styleClass="separator"/>
+
+            <VBox spacing="10" alignment="CENTER">
+
+                <GridPane hgap="15" vgap="8" styleClass="monitor-grid" alignment="CENTER">
+
+                    <Label text="OS:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="osLabel" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="CPU:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="cpuLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="RAM:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="ramLabel" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Active window:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="windowLabel" text="-" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Keys:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="keysLabel" text="-" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Clicks:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <Label fx:id="clicksLabel" text="-" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    <Label text="Moves:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <Label fx:id="movesLabel" text="-" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                    <Label text="Uptime:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <Label fx:id="uptimeLabel" text="-" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                    <Label text="Disk:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                    <Label fx:id="diskLabel" text="-" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10;">
+
+                    <Button fx:id="startMonitoringBtn"
+                            text="▶ Start"
+                            styleClass="monitor-btn btn-start"
+                            onAction="#startMonitoring"/>
+
+                    <Button fx:id="stopMonitoringBtn"
+                            text="Stop"
+                            styleClass="monitor-btn btn-stop"
+                            onAction="#stopMonitoring"/>
+
+                    <Button fx:id="updateNowBtn"
+                            text="Update"
+                            styleClass="monitor-btn btn-update"
+                            onAction="#updateNow"/>
+                </HBox>
+
+                <Label fx:id="statusLabel"
+                       text="Monitoring stopped."
+                       styleClass="status-label"
+                       wrapText="true"/>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

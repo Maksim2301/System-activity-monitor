@@ -1,0 +1,194 @@
+/* ------------------------------ */
+/* GLOBAL                        */
+/* ------------------------------ */
+
+.root {
+    -fx-font-family: "Segoe UI", Roboto, Arial;
+    -fx-font-size: 14px;
+    -fx-background-color: linear-gradient(to bottom, #edf2f7, #e2e8f0);
+}
+
+.label {
+    -fx-text-fill: #1f2933;
+}
+
+/* ------------------------------ */
+/* HEADERS                       */
+/* ------------------------------ */
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+    -fx-padding: 10 0 20 0;
+}
+
+.sub-header {
+    -fx-font-size: 18px;
+    -fx-text-fill: #1f2937;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------ */
+/* INPUTS                        */
+/* ------------------------------ */
+
+.text-field, .password-field, .date-picker {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 6 8;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-background-color: #ffffff;
+}
+
+/* DatePicker */
+.date-picker > .text-field {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #cbd5e1;
+}
+.date-picker:focused > .text-field {
+    -fx-border-color: #3b82f6;
+}
+
+/* ------------------------------ */
+/* BUTTONS (BASE)                */
+/* ------------------------------ */
+
+.button {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ------------------------------ */
+/* MAIN ACTION BUTTONS           */
+/* ------------------------------ */
+
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.22), 8, 0.25, 0, 3);
+}
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #60a5fa, #3b82f6);
+}
+
+.btn-danger {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+}
+.btn-danger:hover {
+    -fx-background-color: #dc2626;
+}
+
+/* Secondary */
+.btn-secondary {
+    -fx-background-color: #6b7280;
+    -fx-text-fill: white;
+    -fx-padding: 8 16;
+}
+.btn-secondary:hover {
+    -fx-background-color: #4b5563;
+}
+
+/* Link button */
+.btn-link {
+    -fx-text-fill: #2563eb;
+    -fx-underline: true;
+    -fx-background-color: transparent;
+}
+.btn-link:hover {
+    -fx-text-fill: #1d4ed8;
+}
+
+/* ------------------------------ */
+/* TITLED PANES                  */
+/* ------------------------------ */
+
+.titled-pane {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(148,163,184,0.6);
+    -fx-background-color: rgba(255,255,255,0.8);
+}
+.titled-pane > .title {
+    -fx-font-weight: bold;
+    -fx-background-color: #e5e7eb;
+}
+
+/* ------------------------------ */
+/* LISTVIEW                      */
+/* ------------------------------ */
+
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+.list-view .cell {
+    -fx-padding: 6;
+    -fx-font-size: 13px;
+}
+.list-view .cell:selected {
+    -fx-background-color: #93c5fd;
+    -fx-text-fill: black;
+}
+
+/* ------------------------------ */
+/* SCROLLPANE                    */
+/* ------------------------------ */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ------------------------------ */
+/* SEPARATOR                     */
+/* ------------------------------ */
+
+.separator {
+    -fx-opacity: 0.4;
+}
+
+/* ------------------------------ */
+/* GRID                          */
+/* ------------------------------ */
+
+.form-grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 10 0;
+}
+
+.value-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+/* ------------------------------ */
+/* STATUS TEXT                   */
+/* ------------------------------ */
+
+.status-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2563eb;
+    -fx-padding: 10;
+}

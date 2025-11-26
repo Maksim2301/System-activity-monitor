@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.controller.ReportsController"
+            stylesheets="@/css/app.css">
+
+    <top>
+        <Label text="Reports"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 12;"
+               BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <VBox spacing="14" alignment="CENTER" style="-fx-padding: 20;">
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Report Name:"/>
+                <TextField fx:id="reportNameField" prefWidth="220"
+                           promptText="Enter report name"/>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER">
+                <Label text="Start Date:"/>
+                <DatePicker fx:id="startDatePicker"/>
+
+                <Label text="End Date:"/>
+                <DatePicker fx:id="endDatePicker"/>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER">
+                <Button text="Generate Report" onAction="#generateReport"/>
+                <Button text="View All Reports" onAction="#showReports"/>
+                <Button text="Filter by Period" onAction="#filterReportsByDate"/>
+                <Button text="Delete Selected" style="-fx-text-fill: red;" onAction="#deleteReport"/>
+                <Button text="Back" onAction="#goBack"/>
+            </HBox>
+
+            <TitledPane text="Report Options" expanded="false" prefWidth="900">
+                <VBox spacing="6" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                    <CheckBox fx:id="includeCpuRam" text="Include CPU/RAM Summary" selected="true"/>
+                    <CheckBox fx:id="includeIdle" text="Include Idle Time" selected="true"/>
+                    <CheckBox fx:id="includeDailyUptime" text="Include Daily Uptime" selected="true"/>
+                    <CheckBox fx:id="includeHourlyStats" text="Include Hourly Stats" selected="true"/>
+                    <CheckBox fx:id="includeAppUsage" text="Include Application Usage" selected="true"/>
+                </VBox>
+            </TitledPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Export CSV" onAction="#exportCSV"/>
+                <Button text="Export Excel" onAction="#exportExcel"/>
+                <Button text="Export PDF" onAction="#exportPDF"/>
+            </HBox>
+
+            <TitledPane text="User Reports" expanded="true" prefWidth="900">
+                <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+
+                    <ListView fx:id="reportsList" prefHeight="200">
+                        <placeholder><Label text="No reports available"/></placeholder>
+                    </ListView>
+
+                    <Separator/>
+
+                    <TitledPane text="Report Summary" expanded="false">
+                        <VBox spacing="5" style="-fx-padding: 10;">
+                            <Label fx:id="avgCpuLabel" text="CPU: —"/>
+                            <Label fx:id="avgRamLabel" text="RAM: —"/>
+                            <Label fx:id="idleLabel" text="Idle: —"/>
+                            <Label fx:id="uptimeAvgLabel" text="Avg Uptime: —"/>
+                        </VBox>
+                    </TitledPane>
+
+                    <TitledPane text="Applications Usage (Total)" expanded="false">
+                        <VBox spacing="5" style="-fx-padding: 10;">
+                            <ListView fx:id="appUsageList" prefHeight="260">
+                                <placeholder>
+                                    <Label text="No application usage data"/>
+                                </placeholder>
+                            </ListView>
+                        </VBox>
+                    </TitledPane>
+
+                    <TitledPane text="Detailed Statistics" expanded="false" prefHeight="260">
+                        <content>
+                            <ScrollPane fitToWidth="true" fitToHeight="true">
+                                <content>
+                                    <VBox fx:id="detailedStatsContainer"
+                                          spacing="6"
+                                          style="-fx-padding: 12;"/>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </TitledPane>
+
+                </VBox>
+            </TitledPane>
+
+            <Label fx:id="messageLabel"
+                   text="Ready"
+                   style="-fx-text-fill: #2a73ff; -fx-font-size: 13px;"
+                   wrapText="true"/>
+
+        </VBox>
+    </center>
+</BorderPane>
